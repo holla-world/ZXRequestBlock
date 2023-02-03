@@ -39,6 +39,9 @@
     return currentRequest;
 }
 -(void)startLoading{
+    if (self.request == nil) {
+        return;
+    }
     NSMutableURLRequest *request = [self.request mutableCopy];
     [NSURLProtocol setProperty:@(YES) forKey:protocolKey inRequest:request];
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
